@@ -171,7 +171,7 @@ public class VirtualSpawnersMod implements ModInitializer {
                         saveSpawners();
                         sp.sendSystemMessage(Util.text("Stacked! " + cfgName(sd.type) + " x" + sd.count,
                                 ChatFormatting.GREEN), true);
-                        sp.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.8f, 1.3f);
+                        sp.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 0.8f, 1.3f);
                         return InteractionResult.SUCCESS;
                     }
                     return InteractionResult.PASS; // sneaking: let players build against it
@@ -256,7 +256,7 @@ public class VirtualSpawnersMod implements ModInitializer {
         sp.openMenu(new SimpleMenuProvider(
                 (id, inv, p) -> new SpawnerMenu(id, inv, sl, pos, key, sd),
                 Component.literal(cfgName(sd.type)).withStyle(ChatFormatting.LIGHT_PURPLE)));
-        sp.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.8f, 0.8f);
+        sp.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 0.8f, 0.8f);
     }
 
     // ------------------------------------------------------------ production (lazy, on access)
@@ -357,7 +357,7 @@ public class VirtualSpawnersMod implements ModInitializer {
         spawners.remove(key);
         saveSpawners();
         sp.sendSystemMessage(Util.text("Picked up " + sd.count + "x " + cfgName(sd.type) + ".", ChatFormatting.GREEN), true);
-        sp.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.8f, 1.0f);
+        sp.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 0.8f, 1.0f);
     }
 
     private static void tick(MinecraftServer server) {

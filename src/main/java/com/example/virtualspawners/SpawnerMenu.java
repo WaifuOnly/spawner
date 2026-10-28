@@ -151,21 +151,21 @@ class SpawnerMenu extends ChestMenu {
             int moved = VirtualSpawnersMod.giveDrops(sp, data, max);
             if (moved > 0) {
                 sp.sendSystemMessage(Util.text("Collected " + Util.fmt(moved) + " items.", ChatFormatting.GREEN), true);
-                sp.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.8f, 1.4f);
+                sp.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 0.8f, 1.4f);
             } else if (slot == DROPS_SLOT) {
                 sp.sendSystemMessage(Util.text(VirtualSpawnersMod.hasStoredItems(data)
                         ? "Your inventory is full." : "No drops stored.", ChatFormatting.RED), true);
-                sp.playNotifySound(SoundEvents.VILLAGER_NO, SoundSource.PLAYERS, 0.8f, 1.0f);
+                sp.playSound(SoundEvents.VILLAGER_NO, 0.8f, 1.0f);
             }
         }
         if (slot == XP_SLOT || slot == ALL_SLOT) {
             int xp = VirtualSpawnersMod.giveXp(sp, data);
             if (xp > 0) {
                 sp.sendSystemMessage(Util.text("Collected " + Util.fmt(xp) + " XP.", ChatFormatting.GREEN), true);
-                sp.playNotifySound(SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.8f, 1.0f);
+                sp.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 0.8f, 1.0f);
             } else if (slot == XP_SLOT) {
                 sp.sendSystemMessage(Util.text("No XP stored.", ChatFormatting.RED), true);
-                sp.playNotifySound(SoundEvents.VILLAGER_NO, SoundSource.PLAYERS, 0.8f, 1.0f);
+                sp.playSound(SoundEvents.VILLAGER_NO, 0.8f, 1.0f);
             }
         }
         VirtualSpawnersMod.saveSpawners();
